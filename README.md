@@ -39,7 +39,7 @@ in two parameters mapStateToProps and mapDispatchToProps. The component file exp
 and the component itself wrapped in parentheses.  mapStateToProps is just as its name implies, it is the Redux State passed down
 to the component as Props. mapDispatchToProps is any Actions that will be Dispatched with a Type. 
 
-'''
+```
 const mapStateToProps = state => ({
   contacts: state.contact.contacts
 });
@@ -48,13 +48,13 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Contacts);
-'''
+```
 
 The Type is generally a variable whose value is a string that describes the Action (ADD_CONTACT) and is declared 
 as:
-'''
+```
 export const ADD_CONTACT = "ADD_CONTACT";
-'''
+```
 
 Why a string? From reading some docs, Medium posts, etc, generally a string is simple and no data will be lost when serialized. 
 If you JSONify/stringify an object or array is "flattened" and any references are ignored. 
@@ -63,7 +63,7 @@ A mapDispatchToProps variable isn't always declared. A technique is to have an A
 create the Action (which can be an object with a Type and Payload), export to the component, and the second parameter
 to the connect function is an object with the Action creator. 
 
-'''
+```
 const mapStateToProps = state => ({
   contacts: state.contact.contacts
 });
@@ -72,7 +72,7 @@ export default connect(
   mapStateToProps,
   { getContacts }
 )(Contacts);
-'''
+```
 
 Note: React is FLEXIBLE. There are many techniques to accomplish the same task. There might (or might not) be a 
 mapDispatchToProps variable. There might (or might not) be an Action creator file, so that code must be written elsewhere
