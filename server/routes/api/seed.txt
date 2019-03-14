@@ -1,0 +1,21 @@
+CREATE TABLE contact (
+    id  SERIAL PRIMARY KEY,
+    name        VARCHAR(50),
+    email       VARCHAR(50),
+    phone       VARCHAR(14),
+    company     VARCHAR(50),
+    title       VARCHAR(50),
+    birthday   DATE
+);
+
+SELECT * FROM contact;
+
+INSERT INTO contact(name, email, phone) VALUES('clark kent','ckent@dailyplanet.com', '760-555-5555');
+
+INSERT INTO contact(name, email, phone) VALUES('diana prince','dprince@kratos.com', '818-555-5555');
+
+INSERT INTO contact(name, email, phone) VALUES('tony stark','tstark@starkenterpises.com', '310-555-5555');
+
+INSERT INTO contact(name, email, phone) VALUES('fred flintstone','fred@slaterocks.com', '650-555-5555');
+
+
