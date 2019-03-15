@@ -83,16 +83,9 @@ mapDispatchToProps variable. There might (or might not) be an Action creator fil
 like in the component. 
 
 ## Challenge(s)
-Bottom Line Up Front: EDIT contact through Forms. Going through this exercise illustrated how challenging it is
-to pre-populate data in the EDIT form fields.  Because data flows in one direction from Store to UI/Components 
-as State to Props, the issue comes up as how to edit ONLY CERTAIN fields through forms with the backend route 
-would be a PATCH route (versus a PUT route when you create a contact).   
-The default is make all fields required on the Edit form and everything gets updated. The obvious issue is typographical
-errors or forgetting to enter a field and the current value gets overwritten with an blank 
-space (or empty string, or null, etc).
+Bottom Line Up Front: EDIT contact through Forms. Basically, care has to be taken when pulling State to Props and setting the conditional logic to either that incoming data field or empty string. And whether to put more of the code on the component side or on the backend. As per Dan Abramov's recommendation and make the frontend as database "agnostic" as possible, so it's easier to plug to any database (PostgreSQL, MongoDB, NoSQL, MySQL, etc, etc). 
 An alternative is to create Refs and use defaultValues. The issue becomes getting that particular
 element, then modifying the data to use Refs, then updating the data and component. The other alternative is to use a 
-library like Redux Forms. The code and data flow get messy (at this time). This app is practice and a work-in-progress,
-so my goal is to get a working EDIT form up and running.
+library like Redux Forms. The code and data flow get messy (at this time). This app is practice trying different techniques, so my goal is to get a working EDIT form up and running on different branches using different styles.
 
 
