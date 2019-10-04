@@ -82,10 +82,11 @@ Note: React is FLEXIBLE. There are many techniques to accomplish the same task. 
 mapDispatchToProps variable. There might (or might not) be an Action creator file, so that code must be written elsewhere
 like in the component. 
 
-## Challenge(s)
-Bottom Line Up Front: EDIT contact through Forms. Basically, care has to be taken when pulling State to Props and setting the conditional logic to either that incoming data field or empty string. And whether to put more of the code on the component side or on the backend. As per Dan Abramov's recommendation and make the frontend as database "agnostic" as possible, so it's easier to plug to any database (PostgreSQL, MongoDB, NoSQL, MySQL, etc, etc). 
-An alternative is to create Refs and use defaultValues. The issue becomes getting that particular
-element, then modifying the data to use Refs, then updating the data and component. The other alternative is to use a 
-library like Redux Forms. The code and data flow get messy (at this time). This app is practice trying different techniques, so my goal is to get a working EDIT form up and running on different branches using different styles.
+## Challenge(s)/Learning Point
+Bottom Line Up Front: EDIT contact through Forms. Basically, care has to be taken when pulling State to Props and setting the conditional logic to either that incoming data field or empty string. Not all fields are required and this effects any error objects that might get passed. Also, whether to put more of the code on the component side or on the backend. As per Dan Abramov's recommendation and make the frontend as database "agnostic" as possible, so it's easier to plug to any database (PostgreSQL, MongoDB, NoSQL, MySQL, etc, etc). Also, per Abramov, some components will have STATE, but it will be their own and does not mean it will be app STATE nor does the component state need to be shared with app state.
+
+Basic pattern is passing STATE from parent component down as PROPS to child component. In a non-Redux/state management library, passing down the PROPS into setState function in a child component. Using Redux, state is passed down as props using a lifecycle method such as componentWillReceiveProps or (UNSAFE_ComponentWillReceiveProps) and pull the data out of nextProps. Can also use getDerivedFromState in conjunction with componentWillMount. This can get confusing between what is appropriate state to share with the App. 
+
+Hence, does a component need to share state with Redux and therefore the app? If I need to share state, maybe I only need to share it with the parent component? As Abramov and a few others wrote/spoke about, it depends on the features and scope. Depending on what feature is needed, will determine what components need state, what components will then need Redux, and the components can be refactored to take state. And during the course of refactor, the components that don't need state can be made simpler or changed from a class component to a functional component.
 
 
